@@ -36,6 +36,11 @@ use prometheus::{Registry, Counter, Gauge};
 // Ugh, note that these counter/gauge index values must map to the index
 // in the COUNTERS/GAUGES globals. There is probably a less error-prone way
 // to do this, but as of today it seems one can't iterate over enums in rust
+// --------------------------------------------------------------------------
+// May consider impl IntoIterator, or Iterator so Either<slice::Iter<Slice1>, 
+// slice::Iter<Slice2>> to resolve iterating over enums in rust
+// https://users.rust-lang.org/t/solved-unified-iteration-over-enum-of-vectors/11830
+
 enum FSCounter {
     Heartbeats = 0,
     Sessions,
